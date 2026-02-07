@@ -1,1 +1,19 @@
-practice performed using portswigger web security academy labs to observe real-world access control behaviour
+OBJECTIVE :
+Observe how web applications enforce authorization after authentication by analyzing response behaviour and access restrictions.
+ENVIRONMENT:
+- web application with authenticated and unauthenticated routes
+- practice performed using Portswigger web security academy labs
+OBSERVATION:
+-Authentication does not guarantee authorization
+-Restricted endpoints returned ;
+*404 NOT FOUND (international concealment)
+* 302 redirect (access flow control)
+- No direct error messages exposed to the user.
+KEY TAKEAWAYS:
+* Access control failures are often silent 
+*Status codes can indicate security logic,not succcess or failure
+*Observation comes before exploitation
+SKILLS PRACTICED:
+* Authorization testing
+* Response analysis
+* Security reasoning
