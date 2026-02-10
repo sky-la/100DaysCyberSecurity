@@ -1,0 +1,3 @@
+Observed that the application uses a URL parameter (id) to determine which user account is displaced .
+  Modifying the parameter does not chnage visible data ,
+indicating partial authorization checks and hightlighting potential IDOR risk if backend validation is inconsistent.
