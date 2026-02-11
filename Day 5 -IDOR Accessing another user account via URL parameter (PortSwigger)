@@ -1,0 +1,3 @@
+Logged in as a normal user and observed that the application uses a URL parameter (id) to determine which account is displayed.
+By modifying the parameter from wiener to carlos,the application loaded another user's account without authorization checks.
+this confirms an IDOR vulnerability caused by missing object-level access control validation.
