@@ -1,0 +1,4 @@
+Successfully configured Burp suite with firefox and intercepted browser traffic
+Captured a live HTTP request and analyzed its structure, including method,host,and headers.
+Used the forward  function to release the request and allow the page to load.
+This marks my first successful manual interception,which is a foundational skill in web application security testing.
