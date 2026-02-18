@@ -1,0 +1,3 @@
+Intercepted the GET /my-account request using Burpe Suite proxy.
+This demonstrated how browser requests can be captured before reaching the server.
+Understanding interception is essential for analyzing and manipulating web application behaviour.
