@@ -1,0 +1,3 @@
+observed HTTP traffic using Burp Suite proxy and sent a captured request to Repeater.
+This allowed manual inspection and replay of the request and response.
+Learned how pentesters use Repeater to test application behavior and analyze server responses.
