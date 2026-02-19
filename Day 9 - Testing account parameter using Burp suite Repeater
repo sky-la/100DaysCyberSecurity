@@ -1,0 +1,4 @@
+Captured the GET /my-account request using Burp suite and sent it to Repeater for manual testing.
+Added an id parameter to observe how the server responds to user-controlled input.
+The server accepted the modified request and responded successfully ,confirming that the application processes user-supplied parameters.
+this is an important step in identifying access control vulnerabilities like IDOR.
