@@ -1,0 +1,8 @@
+WHAT I DID:
+captured GET/my-account request and sent it to Repeater.
+WHAT I LEARNED:
+Repeater allows manual testing of requests.
+WHY IT MATTERS:
+This is used to test authorization and find vulnerabilities.
+TOOL USED:
+Burp Suite Reaperter
