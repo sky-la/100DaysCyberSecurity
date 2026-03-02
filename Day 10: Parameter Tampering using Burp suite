@@ -1,0 +1,14 @@
+OBJECTIVE
+  Browser:firefox
+    Proxy:Burp suite
+      Test Site:httpbin.org
+        OBSERVED REQUEST
+        GET /get?name=Emunah HTTP/1.1  modified to:
+GET /get?name=HackerQueen&role=admin
+  OBSERVATION:
+sever reflected modified parameter values.
+  server accepted additional parameter (role+admin) without validation.
+  Reflection occurred inside JSON context under "args".
+  SECURITY INSIGHT
+  if a real application trusts user-controlled parameters(e.g,role=user),
+  modifying them could lead to privilege escalation or broken access control.
