@@ -1,0 +1,20 @@
+OBJECTIVE
+  Understanding how modifying query parameters can impact backend authorization logic.
+ LAB ENVIRONMENT
+  Browser:firefox
+    Proxy Tool:Burp suite
+      Test Endpoint: httpbin.org
+        WHAT I DID
+        intercepted a GET request containing a query parameter.
+        Modified name=emunah to another value
+        Added hidden parameters such as role=admin.
+        Observed how the server reflected user-supplied input.
+        KEY OBSERVATION
+        the backend accepted additional parameters even when tey were not originally present in the request.
+        Example modified request:
+        GET/get?user=emunah&role=adminHTTP/1.1
+        SECURITY INSIGHT
+        if a real application blindly trusts user-controlled parameters such as role,this could lead to privilege escalation
+        frontend validation is not security.Authorization must be enforced server-side.
+        CONCEPT LEARNED
+        Parameter Tampering can expose broken access control vulnerabilities.
