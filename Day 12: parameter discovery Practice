@@ -1,0 +1,10 @@
+today i practiced parameter discovery using httpbin.
+i tested different parameters such as:
+?user=
+?username=
+?id=
+?role=
+the server reflected the parameters inside the "args" field.
+this helped me understand how attackers test different inputs to discover hidden functionality.
+key concept learned:
+parameter discovery and parameter tempering.
