@@ -1,0 +1,10 @@
+Today i practiced basic reconnaissance techniques.
+  I explored endpoints using httpbin and observed how different paths return different types of information.
+  Endoints tested:
+-/ip
+-/user-agent
+-headers
+  This exercise helped me understand how servers reveal request,information such as IP address,
+browser dteails,and headers.
+  Key concept learned:
+Reconnaisance is the first stage of security testing where information about a system is gathered before vulnerability testing.
