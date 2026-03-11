@@ -1,0 +1,20 @@
+today i practiced intercepting and modifying HTTP requests using Burp Suite.
+  WHAT I DID
+  intercepted a request using Burp Proxy
+  Sent the request to Repeater 
+  Modified the request parameter
+  Observed how the server responded
+  EXAMPLE
+  original request
+  GET/get?name=Emunah
+  Modified request
+  GET/get?name=HackerQueen
+  KEY CONCEPT
+  Repeater allows testers to resend and modify HTTP requests multiple times to observe how a server reacts.
+  SECURITY INSIGHT
+  changing parameters such as IDs can reveal access control issues such as IDOR(Insecure Direct Object Reference).
+  TOOLS USED
+  Burp Suite
+  Firefoc Browser
+  WHAT I LEARNED
+  Understanding how to intercept and modify requests is a core skill in web penetration testing.
