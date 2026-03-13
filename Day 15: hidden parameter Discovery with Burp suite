@@ -1,0 +1,46 @@
+OBJECTIVE
+  learn how to test hidden or unexpected URL parameters using Burp Suite Repeater and observe how the server responds.
+  TOOLS USED
+  -Firefox
+  -BurpSuite
+  httpbin.org
+  PRATICE URLs
+  -https://httpbin.org/get?name=Emunah
+WHAT I DID
+  1. opened the practice URL in Firefox
+  Turned Burpsuite Intercept ON.
+  Refreshed the page to capture the request.
+  sent the request to repeater.
+  modified the original request by adding extra parameters.
+  TESTED
+  -debug=true
+  -&admin=true
+  -&debug=true&test=1
+  sent the modified requests in repeater.
+  checked the JSON responce under "args" section of the response.
+  example:
+  -original
+  -?name=emunah
+  -modified:
+  -?name=emunah&admin=true
+  Response showed both:
+-name
+-admin
+  WHAT I LEARNED
+  HIDDEN PARAMETER DISCOVERY
+  adding extra parameters to a request to see if the server accepts them or changes behaviour.
+  MULTIPLE PARAMETER TESTING
+  Testing more then one parameter at once to observe how the application processes user input.
+  IMPORTANT LESSON
+  A server accepting a parameter does not automatically mean there is a vulnerability
+  it only means the parameter is being processed and may deserve deeper testing.
+  SECURITY MINDSET
+  This kind of testing helps identify:
+  -hidden functionality
+  -debug parameter
+  -weak input validation
+  -access control issues
+  -potential IDOR-style logic flaws
+  REFLECTION
+  today i practiced thinking like a bug hunter;
+Capture - modify - send - compare
