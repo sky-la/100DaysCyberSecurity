@@ -1,0 +1,73 @@
+## Objective
+Learn how to compare normal and modified HTTP responses to identify differences in application behavior.
+
+## Tools Used
+- Firefox
+- Burp Suite
+- httpbin.org
+
+## Practice URLs / Endpoints
+- https://httpbin.org/get?name=Emunah
+- https://httpbin.org/status/403
+- https://httpbin.org/status/404
+
+## What I Did
+1. Opened a normal GET request in Firefox:
+   - `https://httpbin.org/get?name=Emunah`
+2. Captured the request in Burp Suite.
+3. Sent the request to Repeater.
+4. Sent the original request and observed the baseline response.
+5. Modified the request by adding:
+   - `&admin=true`
+6. Sent the modified request and compared the response.
+7. Tested:
+   - `/status/403`
+   - `/status/404`
+8. Compared the returned status codes and response behavior.
+
+## Key Observations
+
+### 1. Original vs Modified Request
+- Original:
+  - `?name=Emunah`
+- Modified:
+  - `?name=Emunah&admin=true`
+
+The main visible change was in the `"args"` section:
+- Original response showed only `name`
+- Modified response showed both `name` and `admin`
+
+### 2. Status Code Comparison
+- `/status/403` returned **403 Forbidden**
+- `/status/404` returned **404 Not Found**
+
+This showed how different endpoints can return different server responses.
+
+## What I Learned
+
+### Response Comparison Testing
+Sending a normal request and a modified request, then comparing the responses to identify differences.
+
+### What to Compare
+- Status code
+- Response body
+- Reflected parameters
+- New or missing data
+- Error messages
+
+### Important Lesson
+A changed response can appear in two major ways:
+1. **Content difference** (example: new reflected parameter)
+2. **Status code difference** (example: 200 vs 403 vs 404)
+
+## Security Mindset
+Careful response comparison helps identify:
+- Hidden functionality
+- Access control issues
+- Authorization behavior
+- Routing differences
+- Potential IDOR-style logic flaws
+
+## Reflection
+Today I practiced thinking like a tester:
+Observe → Modify → Send → Compare
