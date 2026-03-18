@@ -1,0 +1,24 @@
+## Objective
+Learn how to add and test custom HTTP headers in Burp Suite Repeater and observe whether the server reflects or responds differently to them.
+
+## Tools Used
+- Firefox
+- Burp Suite
+- httpbin.org
+
+## Practice Endpoint
+- https://httpbin.org/anything
+
+## What I Did
+1. Opened a working endpoint in Firefox.
+2. Captured the request in Burp Suite.
+3. Sent the request to Repeater.
+4. Sent the original request first to establish a baseline response.
+5. Added custom headers to the request and resent it.
+6. Compared the server response after each change.
+
+## Headers Tested
+
+### 1. X-Forwarded-For
+```http
+X-Forwarded-For: 127.0.0.1
