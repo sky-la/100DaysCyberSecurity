@@ -1,0 +1,71 @@
+## Objective
+Learn how to use Burp Suite's Target tab and Site map to view discovered endpoints, inspect saved traffic, and send endpoints to Repeater for manual testing.
+
+## Tools Used
+- Firefox
+- Burp Suite
+- httpbin.org
+
+## Practice Endpoints
+- https://httpbin.org/get
+- https://httpbin.org/headers
+- https://httpbin.org/ip
+- https://httpbin.org/user-agent
+- https://httpbin.org/anything
+
+## What I Did
+1. Opened multiple safe endpoints in Firefox.
+2. Allowed Burp Suite to capture and observe the traffic.
+3. Opened the **Target** tab in Burp Suite.
+4. Viewed the **Site map** for `httpbin.org`.
+5. Expanded the host to see discovered endpoints.
+6. Clicked an endpoint to inspect the saved request and response.
+7. Right-clicked an endpoint and used **Send to Repeater**.
+8. Opened the request in Repeater.
+9. Modified the request by adding a query parameter:
+   - `GET /anything?day=51 HTTP/1.1`
+10. Sent the modified request and confirmed the reflected parameter in the response.
+
+## Key Concepts Learned
+
+### 1. Target Tab
+The **Target** tab shows the websites and endpoints Burp Suite has seen while browsing.
+
+### 2. Site Map
+The **Site map** is Burp’s organized view of:
+- Hosts
+- Paths
+- Endpoints
+- Saved request/response history
+
+### 3. Attack Surface
+The **attack surface** is all reachable parts of an application that a tester can interact with or test.
+
+Examples:
+- Pages
+- Endpoints
+- Parameters
+- APIs
+- Forms
+- Headers
+- Upload features
+
+## Practical Workflow Learned
+1. Browse the application
+2. Let Burp capture traffic
+3. Use Target → Site map to view endpoints
+4. Select an interesting endpoint
+5. Send it to Repeater
+6. Modify the request
+7. Observe the server response
+
+## Why `/anything` Was Useful
+`/anything` is a strong learning endpoint because it reflects:
+- query parameters
+- request method
+- headers
+- general request structure
+
+## Reflection
+Today I learned how to use Burp Suite’s Site map like a pentester:
+discover → inspect → choose → send to Repeater → test manually.
