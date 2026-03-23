@@ -1,0 +1,71 @@
+## Objective
+Learn how to use Burp Suite's HTTP History to review captured traffic in time order, inspect requests and responses, and send interesting requests to Repeater for manual testing.
+
+## Tools Used
+- Firefox
+- Burp Suite
+- httpbin.org
+
+## Practice Endpoints
+- https://httpbin.org/get
+- https://httpbin.org/headers
+- https://httpbin.org/ip
+- https://httpbin.org/user-agent
+- https://httpbin.org/anything?mode=day52
+
+## What I Did
+1. Opened multiple safe endpoints in Firefox.
+2. Allowed Burp Suite to capture the traffic.
+3. Opened **Proxy → HTTP history**.
+4. Reviewed the list of requests in time order.
+5. Clicked a request row to inspect the saved request and response.
+6. Identified `/anything?mode=day52` as the most useful testing endpoint.
+7. Right-clicked the request and used **Send to Repeater**.
+8. Opened the request in Repeater.
+9. Modified the request:
+   - From: `GET /anything?mode=day52 HTTP/1.1`
+   - To: `GET /anything?mode=day52&note=history HTTP/1.1`
+10. Sent the modified request and confirmed both parameters in the response.
+
+## Key Concepts Learned
+
+### 1. HTTP History
+HTTP History shows all captured HTTP requests in the order they occurred.
+
+### 2. Difference Between Site Map and HTTP History
+- **Site map** = organized by host/path
+- **HTTP History** = organized by time/order
+
+### 3. Important HTTP History Columns
+- **Host** → target domain
+- **Method** → GET / POST / etc.
+- **URL/Path** → endpoint requested
+- **Status** → success, redirect, blocked, error
+- **Length** → response size clue
+- **MIME type** → content type returned
+
+### 4. Best Quick Success/Failure Indicator
+The **Status** column is the best quick indicator.
+
+Examples:
+- `200` = success
+- `403` = forbidden
+- `404` = not found
+- `500` = server error
+
+### 5. Length as a Supporting Clue
+The **Length** column can help compare responses, but it does not directly prove success or failure.
+
+## Practical Workflow Learned
+1. Browse the app
+2. Let Burp capture traffic
+3. Open HTTP History
+4. Find an interesting request
+5. Inspect the request and response
+6. Send it to Repeater
+7. Modify the request
+8. Observe the result
+
+## Reflection
+Today I learned how to use Burp Suite’s HTTP History like a pentester:
+capture → review timeline → inspect → choose request → send to Repeater → test manually.
