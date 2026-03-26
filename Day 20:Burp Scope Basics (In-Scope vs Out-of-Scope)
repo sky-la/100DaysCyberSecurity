@@ -1,0 +1,55 @@
+## Objective
+Learn what scope means in Burp Suite, understand in-scope vs out-of-scope targets, and safely add a host to scope.
+
+## Tools Used
+- Firefox
+- Burp Suite
+- httpbin.org
+
+## Practice Endpoints
+- https://httpbin.org/get
+- https://httpbin.org/anything?scope=day53
+
+## What I Did
+1. Opened `https://httpbin.org/get` in Firefox.
+2. Confirmed Burp Suite captured the traffic.
+3. Went to **Target → Site map**.
+4. Found the host `httpbin.org`.
+5. Right-clicked the host.
+6. Selected **Add to scope**.
+7. Confirmed the host was added successfully.
+8. Opened **Target → Scope**.
+9. Verified that `httpbin.org` appeared as an included target.
+10. Opened `https://httpbin.org/anything?scope=day53`.
+11. Went to **Proxy → HTTP history**.
+12. Confirmed the new request appeared in the traffic timeline.
+
+## Key Concepts Learned
+
+### 1. Scope
+Scope is the exact set of targets I am authorized to test.
+
+### 2. In-Scope
+In-scope means the target is allowed to be tested.
+
+### 3. Out-of-Scope
+Out-of-scope means the target is not allowed to be tested.
+
+### 4. Why Scope Matters
+Scope helps:
+- avoid unauthorized testing
+- reduce noise in Burp
+- organize target traffic
+- keep work professional and safe
+
+### 5. Critical Pentesting Rule
+If a target is not clearly listed as in scope, do not test it.
+
+### 6. Important Mindset
+- Same company does not automatically mean same scope
+- Captured traffic does not automatically mean authorized target
+
+## Reflection
+Today I learned one of the most important professional pentesting habits:
+before testing anything, define exactly what is allowed.
+Burp Scope helps me stay focused, organized, and within authorization boundaries.
