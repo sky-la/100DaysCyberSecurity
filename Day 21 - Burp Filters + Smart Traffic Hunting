@@ -1,0 +1,20 @@
+## What I learned
+Today I learned how to use Burp Suite more efficiently by reducing noisy traffic and focusing on important requests.
+
+## Key concepts
+- HTTP history = all captured requests
+- Site map = structure of the target application
+- In-scope items = only traffic related to the target
+- Static files = images, CSS, JS, fonts (usually less interesting first)
+- Interesting requests = requests with parameters, forms, logins, search, IDs
+
+## Interesting endpoints I found
+- /search.php
+- /artists.php?artist=1
+- /product.php?id=1
+
+## Repeater target
+I sent one parameterized request to Repeater for later testing.
+
+## Key insight
+Not every request matters. Good recon means finding the requests that are actually worth testing.
