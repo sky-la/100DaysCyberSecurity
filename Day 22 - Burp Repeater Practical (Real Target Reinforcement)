@@ -1,0 +1,50 @@
+## Topic
+Burp Repeater Practical on a Real Training Target
+
+## Why This Day Matters
+This was not a brand-new theory lesson.  
+It was a hands-on reinforcement day to practice using Burp Repeater on a real training target and build confidence with request/response testing.
+
+## What I Practiced
+Today I used Burp Suite with PortSwigger Web Security Academy to reinforce my understanding of Burp Repeater.
+
+I practiced how to:
+- capture a real request in Burp Proxy
+- send the request to Repeater
+- manually resend the request
+- modify the request path
+- compare the server’s response before and after the change
+
+## Practical Steps I Performed
+1. Opened PortSwigger Web Security Academy in Burp browser
+2. Viewed traffic in Proxy > HTTP history
+3. Selected the main GET request
+4. Sent the request to Repeater
+5. Clicked Send and received `200 OK`
+6. Modified the request path from:
+   `/web-security/getting-started`
+   to:
+   `/web-security/getting-started123`
+7. Sent the modified request again
+8. Received `404 Not Found`
+
+## Key Observation
+- Valid request path = `200 OK`
+- Invalid request path = `404 Not Found`
+
+This reinforced an important web security concept:
+
+**Changing a request can change the server’s response.**
+
+## Key Takeaway
+Burp Repeater is useful for:
+- replaying requests
+- testing changes manually
+- observing server behavior
+- comparing valid vs invalid responses
+
+## Memory Line
+**Proxy captures. Repeater experiments.**
+
+## Note
+This day was a practical reinforcement session, not a brand-new concept lesson.
