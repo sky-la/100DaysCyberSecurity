@@ -1,0 +1,41 @@
+## Lab
+Reflected XSS into a JavaScript string with angle brackets HTML-encoded
+
+## Tools Used
+- Burp Suite Repeater
+- PortSwigger Web Security Academy
+- Browser DevTools (for observing behavior)
+
+## What I Learned
+Today I solved a reflected XSS lab where user input was reflected inside a JavaScript string instead of normal HTML.
+
+The input appeared inside a `<script>` block in a pattern similar to:
+
+```javascript
+var searchTerms = 'USERINPUT';
+This confirmed that the single quote was not safely escaped.
+Working Payload
+Plain text
+';alert(1)//
+Why It Worked
+The payload worked by:
+Closing the original JavaScript string with '
+Executing alert(1)
+Using // to comment out the trailing quote and prevent syntax errors
+Key Takeaway
+In XSS testing, context decides the payload.
+Before using any payload, I now know to first check:
+Is the input reflected in HTML?
+Is it inside an attribute?
+Is it inside JavaScript?
+Are special characters being encoded or escaped?
+Skills Practiced
+Burp Suite Repeater
+Reflection analysis
+JavaScript context detection
+Payload testing
+XSS string breakout
+Basic exploit logic
+Big Lesson
+The same input can appear in multiple places, but only one reflection point may actually be exploitable.
+That is why identifying the exact context matters before testing payloads.
