@@ -1,0 +1,18 @@
+## Overview
+Discovered a Stored XSS vulnerability where user input is stored and rendered without sanitization.
+
+## Steps
+1. Located comment input field
+2. Injected payload:
+   <script>alert(1)</script>
+3. Submitted comment
+4. Observed execution on page load
+5. Refreshed page → payload executed again
+
+## Key Insight
+The application stores user input and renders it directly into HTML without encoding.
+
+## Impact
+- Persistent execution
+- Affects all users viewing the page
+- Potential for session hijacking and admin compromise
