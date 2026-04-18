@@ -1,0 +1,18 @@
+## Overview
+This lab focused on bypassing strong input filters using Burp Suite Intruder.
+
+## What I Learned
+- How to enumerate allowed HTML tags
+- How to test allowed attributes (event handlers)
+- Why filters alone do not prevent XSS
+- The importance of understanding execution context
+
+## Tools Used
+- Burp Suite (Intruder)
+- Firefox DevTools
+
+## Key Insight
+Instead of guessing payloads, I used automation to identify what the application allowed, then built an attack based on those findings.
+
+## Status
+Concept mastered (lab environment issue prevented full exploit delivery)
