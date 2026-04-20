@@ -1,0 +1,15 @@
+## Overview
+Exploited XSS in an HTML attribute context by breaking out of quotes and injecting an event handler.
+
+## Key Concept
+User input was placed inside an HTML attribute:
+<input value="user_input">
+
+## Exploitation Steps
+1. Broke out of attribute using "
+2. Injected event handler:
+   " onmouseover="alert(1)
+3. Triggered alert by hovering
+
+## Insight
+Even when <script> is blocked, attribute-based injection can lead to execution.
