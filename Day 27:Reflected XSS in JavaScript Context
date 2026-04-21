@@ -1,0 +1,25 @@
+## Overview
+Learned how to exploit XSS when user input is placed inside JavaScript code.
+
+## Key Concept
+Input is reflected inside a JavaScript string:
+var search = 'user_input';
+
+## Challenge
+Single quotes (') and backslashes (\) are escaped, preventing normal string breakouts.
+
+## Exploitation Strategy
+Instead of breaking the string, break out of the script context.
+
+## Payload
+</script><script>alert(1)</script>
+
+## Steps
+1. Identify input inside JavaScript
+2. Observe escaping behavior
+3. Close the existing script tag
+4. Inject a new script tag
+5. Execute JavaScript payload
+
+## Insight
+When direct injection is blocked, changing context (from JS string to HTML script) can still lead to execution.
