@@ -1,0 +1,11 @@
+## Overview
+Exploited a basic reflected XSS vulnerability with no input encoding.
+
+## Key Concept
+User input was directly embedded in HTML without sanitization.
+
+## Payload
+<script>alert(1)</script>
+
+## Insight
+When user input is not encoded, execution becomes immediate and straightforward.
