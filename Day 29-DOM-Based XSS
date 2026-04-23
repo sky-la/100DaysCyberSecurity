@@ -1,0 +1,22 @@
+## Overview
+Explored DOM-based XSS where execution happens entirely in the browser.
+
+## Key Concept
+User input from the URL is inserted into the page via JavaScript.
+
+## Scenario
+Input was placed inside an HTML attribute:
+<img src="USER_INPUT">
+
+## Payload
+"><svg onload=alert(1)>
+
+## Steps
+1. Identified source (location.search)
+2. Found sink (HTML attribute via JS)
+3. Broke out of attribute using "
+4. Closed tag with >
+5. Injected executable SVG payload
+
+## Insight
+DOM XSS often requires understanding how JavaScript manipulates the DOM and escaping the correct context.
