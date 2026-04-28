@@ -1,0 +1,11 @@
+## Overview
+Explored DOM-based XSS using innerHTML.
+
+## Key Concept
+User input from the URL is inserted into the page using innerHTML.
+
+## Payload
+?search=<img src=x onerror=alert(1)>
+
+## Insight
+Event handlers like onerror can execute JavaScript even when script tags do not.
