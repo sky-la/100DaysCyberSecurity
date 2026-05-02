@@ -1,0 +1,8 @@
+## Overview
+Learned how to bypass advanced filters by identifying allowed tags and events.
+
+## Payload
+<svg><animatetransform onbegin=alert(1)>
+
+## Insight
+Understanding filter behavior is more effective than guessing payloads.
