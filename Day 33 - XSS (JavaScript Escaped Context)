@@ -1,0 +1,8 @@
+## Overview
+Learned how to bypass escaping in JavaScript-based XSS.
+
+## Payload
+\';alert(1);//
+
+## Insight
+Escaping mechanisms can be bypassed by manipulating how escape characters are interpreted.
