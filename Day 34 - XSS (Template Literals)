@@ -1,0 +1,8 @@
+## Overview
+Explored XSS in JavaScript template literals.
+
+## Payload
+${alert(1)}
+
+## Insight
+Template literals allow direct execution via ${}, even when input is heavily escaped.
