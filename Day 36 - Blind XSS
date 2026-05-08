@@ -1,0 +1,14 @@
+## Overview
+Learned about Blind XSS, where malicious payloads execute later in another user’s browser rather than immediately in the attacker’s session.
+
+## Common Targets
+- Support forms
+- Feedback systems
+- Admin panels
+- Logging systems
+
+## Example Payload
+<img src=x onerror=alert(1)>
+
+## Insight
+Blind XSS is dangerous because it can target privileged users such as administrators without immediate visible feedback to the attacker.
