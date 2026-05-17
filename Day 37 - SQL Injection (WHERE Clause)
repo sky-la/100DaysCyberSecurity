@@ -1,0 +1,11 @@
+## Overview
+Successfully exploited a SQL Injection vulnerability in a WHERE clause to retrieve hidden data.
+
+## Test Payload
+'
+
+## Exploit Payload
+' OR 1=1--
+
+## Insight
+SQL Injection works by altering backend query logic through unsafe handling of user-controlled input.
