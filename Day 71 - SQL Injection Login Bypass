@@ -1,0 +1,8 @@
+## Overview
+Learned how SQL Injection can bypass authentication by manipulating backend login queries.
+
+## Payload
+administrator'--
+
+## Insight
+Commenting out part of a SQL query can remove password verification entirely if user input is handled unsafely.
