@@ -1,0 +1,8 @@
+## Overview
+Learned how to determine the number of columns in a vulnerable SQL query using ORDER BY during UNION-based SQL Injection testing.
+
+## Payload Pattern
+' ORDER BY 1--
+
+## Insight
+UNION attacks require the injected query to match the original query structure, including the correct number of columns.
