@@ -1,0 +1,11 @@
+## Overview
+Successfully identified which SQL query column reflected attacker-controlled output during a UNION-based SQL Injection attack.
+
+## Payload Example
+' UNION SELECT NULL,'test',NULL--
+
+## Result
+Column 2 displayed the injected text.
+
+## Insight
+Visible columns are critical for displaying extracted database information during SQL Injection exploitation.
