@@ -1,0 +1,11 @@
+## Overview
+Successfully extracted backend database version information using UNION-based SQL Injection.
+
+## Payload
+' UNION SELECT NULL,version()--
+
+## Result
+Retrieved PostgreSQL version information from the backend database.
+
+## Insight
+Visible SQL query columns can expose sensitive backend system details during exploitation.
