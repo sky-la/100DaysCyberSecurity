@@ -1,0 +1,23 @@
+## Overview
+
+Today I learned how to extract multiple pieces of information through a single visible column during a UNION-based SQL Injection attack.
+
+## Challenge
+
+The application only displayed one column of output, making it impossible to display usernames and passwords separately.
+
+## Solution
+
+Used PostgreSQL string concatenation to combine multiple values into a single output column.
+
+## Payload
+
+' UNION SELECT NULL,username||':'||password FROM users--
+
+## Example Output
+
+administrator:password123
+
+## Key Lesson
+
+Attackers often need to adapt their payloads to application constraints. When only one column is visible, multiple values can be merged into a single output field and still be extracted successfully.
