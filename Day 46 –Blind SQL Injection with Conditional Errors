@@ -1,0 +1,39 @@
+Objective
+Exploit a blind SQL Injection vulnerability by using database errors as a TRUE/FALSE indicator to extract the administrator password.
+
+Tools Used
+
+Burp Suite Proxy
+Burp Suite Intruder
+Firefox
+PortSwigger Web Security Academy
+
+
+Vulnerability
+The application was vulnerable to Blind SQL Injection through the TrackingId cookie.
+Instead of displaying query results, the application returned an HTTP 500 Internal Server Error whenever a crafted SQL condition evaluated to TRUE.
+This behavior created an error-based side channel that allowed sensitive information to be extracted.
+
+Methodology
+
+Intercepted the request in Burp Suite.
+Sent the request to Intruder.
+Injected a conditional SQL payload into the TrackingId cookie.
+Used Intruder with a payload list containing letters (a–z) and numbers (0–9).
+Observed HTTP 500 responses to identify the correct character for each password position.
+Repeated the process for all 20 positions.
+Logged in as the administrator using the recovered password.
+Successfully solved the lab.
+
+
+Key Lessons Learned
+
+Blind SQL Injection does not require visible database output.
+Error messages can act as a reliable TRUE/FALSE indicator.
+Burp Intruder greatly simplifies repetitive character extraction.
+Small differences in application behavior can reveal highly sensitive information.
+
+
+Personal Reflection
+Today's lab reinforced an important lesson: security isn't only about hiding information. Applications must also avoid leaking clues through different responses or error conditions.
+Every small behavior matters.
