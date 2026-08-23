@@ -1,0 +1,37 @@
+Objective
+Identify a valid username by analysing subtle differences in authentication responses and use the discovered credentials to solve the lab.
+Tools Used
+Firefox
+Burp Suite
+Burp Proxy
+Burp Intruder
+Method
+I submitted dummy credentials to the login page and captured the POST /login request in Burp Suite.
+username=testuser&password=password123
+I sent the request to Burp Intruder and used the Sniper attack type. I marked only the username as the payload position:
+username=§testuser§&password=password123
+I kept the password parameter in the request because removing it resulted in a 400 Bad Request.
+When pasting the username wordlist caused formatting issues, I saved the list as a .txt file and loaded it directly into Intruder using the Load option.
+I then configured Grep - Extract to isolate the authentication warning message from each response.
+During the attack, the server began returning 504 Gateway Timeout errors because requests were being sent too quickly. To fix this, I created a Resource Pool and limited the attack to one concurrent request.
+Finding the Valid Username
+After completing the attack, I sorted the results by response length.
+One result stood out:
+Username: athena
+Length: 3447
+Most invalid usernames returned:
+Invalid username or password.
+However, the response for athena was missing the trailing full stop:
+Invalid username or password
+This small difference in the response revealed that athena was a valid username.
+Successful Authentication
+I successfully authenticated using:
+Username: athena
+Password: 12345
+After accessing the authenticated account area, the lab displayed the successful completion banner.
+Key Takeaways
+Authentication responses should be consistent for valid and invalid usernames.
+Small differences in punctuation or response length can leak sensitive information.
+Burp Intruder and Grep - Extract can help identify subtle response anomalies.
+Reducing request concurrency can help avoid timeouts during automated testing.
+LAB SOLVED ✅
